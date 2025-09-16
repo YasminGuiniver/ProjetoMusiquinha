@@ -1,2 +1,6 @@
 # ProjetoMusiquinha
-Projeto criado por mim e por Jhenifer Rodrigues para fixar conhecimentos e ganhar nota após aula na SPTech - 4° Semeste - Componente de Back-End Avançado
+
+Alunas:
+Jhenifer Lorrane Anacleto Rodrigues - RA: 01241018
+Yasmin Guiniver Silva Patrocinio - RA: 01241072
+
