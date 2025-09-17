@@ -3,6 +3,8 @@
 - **Jhenifer Lorrane Anacleto Rodrigues** - RA: 01241018
 - **Yasmin Guiniver Silva Patrocinio** - RA: 01241072
 
+Repositório: [https://github.com/YasminGuiniver/ProjetoMusiquinha](https://github.com/YasminGuiniver/ProjetoMusiquinha)
+
 ---
 
 ## Como rodar o projeto (`musicConsumidor`)
