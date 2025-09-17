@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto Musiquinha 🎵</title>
+    <style>
+      body {
+        background: #fce4ec;
+        font-family: "Segoe UI", sans-serif;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        height: 100vh;
+        margin: 0;
+      }
+      h1 {
+        color: #ad1457;
+        margin-bottom: 18px;
+        font-size: 2.5rem;
+      }
+      button {
+        background: #f06292;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        padding: 18px 40px;
+        font-size: 1.2rem;
+        cursor: pointer;
+        box-shadow: 0 2px 8px #f8bbd0;
+        transition: background 0.2s;
+      }
+      button:hover {
+        background: #ad1457;
+      }
+      .msg {
+        margin-top: 30px;
+        color: #6a1b9a;
+        font-size: 1.1rem;
+        background: #fce4ec;
+        padding: 24px 12px 16px 12px;
+        border-radius: 16px;
+        box-shadow: 0 1px 8px #f8bbd0;
+        display: none;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Projeto Musiquinha 🎵</h1>
+    <div class="msg" id="msg">{{musicasHtml}}</div>
+    <form
+      id="musicasForm"
+      method="GET"
+      action="/musicas"
+      style="margin-top: 32px"
+    >
+      <button id="musicasBtn" type="submit">Ver todas as músicas</button>
+    </form>
+    <script>
+      const msgDiv = document.getElementById("msg");
+      const musicasForm = document.getElementById("musicasForm");
+      const musicasBtn = document.getElementById("musicasBtn");
+      musicasForm.addEventListener("submit", async function (e) {
+        e.preventDefault();
+        msgDiv.style.display = "block";
+        msgDiv.textContent = "Carregando músicas...";
+        try {
+          const response = await fetch("/musicas");
+          if (!response.ok) throw new Error("Erro ao buscar músicas.");
+          const data = await response.text();
+          msgDiv.innerHTML = data;
+          musicasBtn.textContent = "Atualizar lista";
+        } catch (err) {
+          msgDiv.textContent = "Erro ao buscar músicas.";
+        }
+      });
+    </script>
+  </body>
+</html>
